@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel ="stylesheet" href="./css/css.css">
+</head>
+
+<body class="flex flex-col min-h-screen bg-black text-white min-h-screen mt-8 mb-2">
+    <nav class="bg-animated cyber-grid fixed w-full z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a href="#" class="text-2xl font-bold neon-text glitch-effect" data-text="About">About</a>
+                <input type="checkbox" id="menu-toggle" class="hidden">
+                <label for="menu-toggle" class="menu-icon cursor-pointer md:hidden">
+                    <span class="hamburger"></span>
+                </label>
+                <ul class="menu hidden md:flex md:items-center space-x-6">
+                    <li><a href="index.html" class="nav-link" data-text="Home">Home</a></li>
+                    <li><a href="about.html" class="nav-link" data-text="About">About</a></li>
+                    <li><a href="login.html" class="nav-link" data-text="Login">Login</a></li>
+                    <li><a href="private.html" class="nav-link" data-text="Private">Private</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="mt-20 neon-text text-center text-2xl ">
+            <h1><b><i>Zu mir gehören:</i></b></h1>
+        </div>
+        <div class="flex gap-8 flex-wrap justify-center bg-black h-screen py-10 mt-20">
+            
+    <div
+        class="transform  rounded-xl h-40 w-40 sm:h-64 sm:w-64 bg-black text-cyan-500 shadow-xl transition duration-300 hover:scale-105">
+        <div class="flex h-full justify-center items-center">
+            <img src="assets/mann.jpeg">
+            <span class="font-bold text-gray-500"></span>
+        </div>
+        Mein Mann
+    </div>
+    
+
+    <div
+        class="transform  rounded-xl h-40 w-40 sm:h-64 sm:w-64 bg-black text-cyan-500 shadow-xl transition duration-300 hover:rotate-180">
+        <div class="flex h-full justify-center items-center">
+            <img src="assets/kids.jpeg">
+           <span class="font-bold text-green-600"></span>
+        </div>
+        Unsere 3 Kinder
+    </div>
+
+    <div
+        class="transform rounded-xl h-40 w-40 sm:h-64 sm:w-64 bg-black text-cyan-500 shadow-xl transition duration-300 hover:translate-y-4">
+        <div class="flex h-full justify-center items-center">
+            <img src="assets/haus.jpeg">
+            <span class="font-bold text-amber-500"></span>
+        </div>
+        Unser Haus
+    </div>
+
+    <div
+        class="transform rounded-xl h-40 w-40 sm:h-64 sm:w-64 bg-black text-cyan-500 shadow-xl transition duration-300 hover:translate-x-4">
+        <div class="flex h-full justify-center items-center">
+            <img src="assets/dschungel.jpeg">
+            <span class="font-bold text-amber-500"></span>
+        </div>
+        Unser Garten
+    </div>
+</div>
+        
+    </main>
+<script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.querySelector('.menu');
+
+        menuToggle.addEventListener('change', function () {
+            if (this.checked) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex', 'flex-col', 'items-center', 'justify-center', 'space-y-4');
+            } else {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex', 'flex-col', 'items-center', 'justify-center', 'space-y-4');
+            }
+        });
+
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 768) {
+                menu.classList.remove('hidden', 'flex', 'flex-col', 'items-center', 'justify-center', 'space-y-4');
+                menu.classList.add('md:flex', 'md:items-center');
+                menuToggle.checked = false;
+            } else if (!menuToggle.checked) {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex', 'flex-col', 'items-center', 'justify-center', 'space-y-4');
+            }
+        });
+    </script>
+
+<footer>
+        <div class="container mx-auto px-4 py-12">
+            <div class="mt-8 pt-8 border-t border-cyan-800">
+                <p class="text-center text-cyan-300">&copy; 2024 Sonja Lind-Hetfeld.</p>
+            </div>
+        </div>
+        <div class="absolute inset-0 pointer-events-none neon-border"></div>
+    </footer>
+</body>
+</html>

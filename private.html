@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel ="stylesheet" href="./css/css.css">
+</head>
+
+<body class="flex flex-col min-h-screen bg-black text-white min-h-screen mt-8">
+    <nav class="bg-animated cyber-grid fixed w-full z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a href="#" class="text-2xl font-bold neon-text glitch-effect" data-text="Private">Private</a>
+                <input type="checkbox" id="menu-toggle" class="hidden">
+                <label for="menu-toggle" class="menu-icon cursor-pointer md:hidden">
+                    <span class="hamburger"></span>
+                </label>
+                <ul class="menu hidden md:flex md:items-center space-x-6">
+                    <li><a href="index.html" class="nav-link" data-text="Home">Home</a></li>
+                    <li><a href="about.html" class="nav-link" data-text="About">About</a></li>
+                    <li><a href="#contact.html" class="nav-link" data-text="Login">Login</a></li>
+                    <li><a href="private.html" class="nav-link" data-text="Private">Private</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        
+    </main>
+
+<script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.querySelector('.menu');
+
+        menuToggle.addEventListener('change', function () {
+            if (this.checked) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex', 'flex-col', 'items-center', 'justify-center', 'space-y-4');
+            } else {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex', 'flex-col', 'items-center', 'justify-center', 'space-y-4');
+            }
+        });
+
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 768) {
+                menu.classList.remove('hidden', 'flex', 'flex-col', 'items-center', 'justify-center', 'space-y-4');
+                menu.classList.add('md:flex', 'md:items-center');
+                menuToggle.checked = false;
+            } else if (!menuToggle.checked) {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex', 'flex-col', 'items-center', 'justify-center', 'space-y-4');
+            }
+        });
+    </script> 
+  
+
+    
+<div class="relative overflow-hidden bg-black mt-20">
+    <div class="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
+      <div class="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
+        <div class="sm:max-w-lg">
+          <h1 class="font text-4xl font-bold tracking-tight neon-text sm:text-6xl">Meine Hobbys</h1>
+          <p class="mt-4 text-xl text-white">In meiner Freizeit Lese ich gerne. Ausserdem habe ich auch viel Spass an Handarbeiten, egal ob Häkeln, Stricken, Nähen oder Plotten</p>
+        </div>
+        <div>
+          <div class="mt-10">
+            <!-- Decorative image grid -->
+            <div aria-hidden="true" class="pointer-events-none lg:absolute lg:inset-y-0 lg:mx-auto lg:w-full lg:max-w-7xl">
+              <div class="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
+                <div class="flex items-center space-x-6 lg:space-x-8">
+                  <div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                    <div class="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100">
+                      <img src="assets/decke.jpeg" class="h-full w-full object-cover object-center">
+                    </div>
+                    <div class="h-64 w-44 overflow-hidden rounded-lg">
+                      <img src="assets/waschbaer.jpeg" alt="" class="h-full w-full object-cover object-center">
+                    </div>
+                  </div>
+                  <div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                    <div class="h-64 w-44 overflow-hidden rounded-lg">
+                      <img src="assets/muetzen.jpg" alt="" class="h-full w-full object-cover object-center">
+                    </div>
+                    <div class="h-64 w-44 overflow-hidden rounded-lg">
+                      <img src="assets/set.jpeg" alt="" class="h-full w-full object-cover object-center">
+                    </div>
+                    <div class="h-64 w-44 overflow-hidden rounded-lg">
+                      <img src="assets/error.jpeg" alt="" class="h-full w-full object-cover object-center">
+                    </div>
+                  </div>
+                  <div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                    <div class="h-64 w-44 overflow-hidden rounded-lg">
+                      <img src="assets/desserts.jpeg" alt="" class="h-full w-full object-cover object-center">
+                    </div>
+                    <div class="h-64 w-44 overflow-hidden rounded-lg">
+                      <img src="assets/seitlich.jpeg" alt="" class="h-full w-full object-cover object-center">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a href="#" class="inline-block rounded-md border border-transparent bg-cyan-600 py-3 px-8 text-center font-medium text-white hover:bg-cyan-700">Svelte Signals</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <footer>
+        <div class="container mx-auto px-4 py-12">
+            <div class="mt-8 pt-8 border-t border-cyan-800">
+                <p class="text-center text-cyan-300">&copy; 2024 Sonja Lind-Hetfeld.</p>
+            </div>
+        </div>
+        <div class="absolute inset-0 pointer-events-none neon-border"></div>
+    </footer>  
+</body>
+</html>

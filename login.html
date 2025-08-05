@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel ="stylesheet" href="./css/css.css">
+</head>
+
+<body class="flex flex-col min-h-screen bg-black text-white min-h-screen mt -8">
+    <nav class="bg-animated cyber-grid fixed w-full z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a href="#" class="text-2xl font-bold neon-text glitch-effect" data-text="Login">Login</a>
+                <input type="checkbox" id="menu-toggle" class="hidden">
+                <label for="menu-toggle" class="menu-icon cursor-pointer md:hidden">
+                    <span class="hamburger"></span>
+                </label>
+                <ul class="menu hidden md:flex md:items-center space-x-6">
+                    <li><a href="index.html" class="nav-link" data-text="Home">Home</a></li>
+                    <li><a href="about.html" class="nav-link" data-text="About">About</a></li>
+                    <li><a href="login.html" class="nav-link" data-text="Login">Login</a></li>
+                    <li><a href="private.html" class="nav-link" data-text="Private">Private</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+<main>
+        <main class="mx-auto flex min-h-screen w-full items-center justify-center bg-black text-white">
+    <section class="flex w-[30rem] flex-col space-y-10">
+        <div class="text-center text-4xl font-medium">Log In</div>
+
+        <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-cyan-500">
+            <input type="text" placeholder="Email or Username" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"/>
+        </div>
+
+        <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-cyan-500">
+            <input type="password" placeholder="Password" class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"/>
+        </div>
+
+        <button class="transform rounded-sm bg-cyan-600 py-2 font-bold duration-300 hover:bg-cyan-500">LOG IN</button>
+
+        <a href="#" class="transform text-center font-semibold text-gray-500 duration-300 hover:text-gray-300">FORGOT PASSWORD?</a>
+
+        <p class="text-center text-lg">
+            No account?
+            <a href="#" class="font-medium text-cyan-500 underline-offset-4 hover:underline">Create One</a>
+        </p>
+    </section>
+</main>
+</main>
+
+
+
+
+
+
+<script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.querySelector('.menu');
+
+        menuToggle.addEventListener('change', function () {
+            if (this.checked) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex', 'flex-col', 'items-center', 'justify-center', 'space-y-4');
+            } else {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex', 'flex-col', 'items-center', 'justify-center', 'space-y-4');
+            }
+        });
+
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 768) {
+                menu.classList.remove('hidden', 'flex', 'flex-col', 'items-center', 'justify-center', 'space-y-4');
+                menu.classList.add('md:flex', 'md:items-center');
+                menuToggle.checked = false;
+            } else if (!menuToggle.checked) {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex', 'flex-col', 'items-center', 'justify-center', 'space-y-4');
+            }
+        });
+    </script>
+  
+
+<footer>
+        <div class="container mx-auto px-4 py-12">
+            <div class="mt-8 pt-8 border-t border-cyan-800">
+                <p class="text-center text-cyan-300">&copy; 2024 Sonja Lind-Hetfeld.</p>
+            </div>
+        </div>
+        <div class="absolute inset-0 pointer-events-none neon-border"></div>
+    </footer>  
+</body>
+</html>
