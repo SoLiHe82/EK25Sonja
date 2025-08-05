@@ -30,89 +30,101 @@
         </div>
     </nav>
     <main>
-        
-    </main>
+        <head>
+  <script src="//unpkg.com/alpinejs" defer></script>
 
-<script>
-        const menuToggle = document.getElementById('menu-toggle');
-        const menu = document.querySelector('.menu');
+</head>
+<body>
+<section class="px-4 py-24 mx-auto max-w-7xl">
+  <div class="w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center">
+    <h1 class="mb-6 text-4xl font-extrabold leading-none tracking-normal text-gray-900 md:text-6xl md:tracking-tight">
+      <span class="block w-full neon-text bg-clip-text bg-black lg:inline">Hobbys</span>
+    </h1>
+    <p class="mt-4 text-xl text-white">In my free time I love to knit, crochet, sew oder work with my cutting plotter.</p>
+  </div>
 
-        menuToggle.addEventListener('change', function () {
-            if (this.checked) {
-                menu.classList.remove('hidden');
-                menu.classList.add('flex', 'flex-col', 'items-center', 'justify-center', 'space-y-4');
+</section>
+
+<section>
+
+  <div x-data="{
+        imageGalleryOpened: false,
+        imageGalleryActiveUrl: null,
+        imageGalleryImageIndex: null,
+        imageGalleryOpen(event) {
+            this.imageGalleryImageIndex = event.target.dataset.index;
+            this.imageGalleryActiveUrl = event.target.src;
+            this.imageGalleryOpened = true;
+        },
+        imageGalleryClose() {
+            this.imageGalleryOpened = false;
+            setTimeout(() => this.imageGalleryActiveUrl = null, 300);
+        },
+        imageGalleryNext(){
+            if(this.imageGalleryImageIndex == this.$refs.gallery.childElementCount){
+                this.imageGalleryImageIndex = 1;
             } else {
-                menu.classList.add('hidden');
-                menu.classList.remove('flex', 'flex-col', 'items-center', 'justify-center', 'space-y-4');
+                this.imageGalleryImageIndex = parseInt(this.imageGalleryImageIndex) + 1;
             }
-        });
-
-        window.addEventListener('resize', function () {
-            if (window.innerWidth > 768) {
-                menu.classList.remove('hidden', 'flex', 'flex-col', 'items-center', 'justify-center', 'space-y-4');
-                menu.classList.add('md:flex', 'md:items-center');
-                menuToggle.checked = false;
-            } else if (!menuToggle.checked) {
-                menu.classList.add('hidden');
-                menu.classList.remove('flex', 'flex-col', 'items-center', 'justify-center', 'space-y-4');
+            this.imageGalleryActiveUrl = this.$refs.gallery.querySelector('[data-index=\'' + this.imageGalleryImageIndex + '\']').src;
+        },
+        imageGalleryPrev() {
+            if(this.imageGalleryImageIndex == 1){
+                this.imageGalleryImageIndex = this.$refs.gallery.childElementCount;
+            } else {
+                this.imageGalleryImageIndex = parseInt(this.imageGalleryImageIndex) - 1;
             }
-        });
-    </script> 
-  
 
-    
-<div class="relative overflow-hidden bg-black mt-20">
-    <div class="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
-      <div class="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
-        <div class="sm:max-w-lg">
-          <h1 class="font text-4xl font-bold tracking-tight neon-text sm:text-6xl">Meine Hobbys</h1>
-          <p class="mt-4 text-xl text-white">In meiner Freizeit Lese ich gerne. Ausserdem habe ich auch viel Spass an Handarbeiten, egal ob Häkeln, Stricken, Nähen oder Plotten</p>
-        </div>
-        <div>
-          <div class="mt-10">
-            <!-- Decorative image grid -->
-            <div aria-hidden="true" class="pointer-events-none lg:absolute lg:inset-y-0 lg:mx-auto lg:w-full lg:max-w-7xl">
-              <div class="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
-                <div class="flex items-center space-x-6 lg:space-x-8">
-                  <div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                    <div class="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100">
-                      <img src="assets/decke.jpeg" class="h-full w-full object-cover object-center">
-                    </div>
-                    <div class="h-64 w-44 overflow-hidden rounded-lg">
-                      <img src="assets/waschbaer.jpeg" alt="" class="h-full w-full object-cover object-center">
-                    </div>
-                  </div>
-                  <div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                    <div class="h-64 w-44 overflow-hidden rounded-lg">
-                      <img src="assets/muetzen.jpg" alt="" class="h-full w-full object-cover object-center">
-                    </div>
-                    <div class="h-64 w-44 overflow-hidden rounded-lg">
-                      <img src="assets/set.jpeg" alt="" class="h-full w-full object-cover object-center">
-                    </div>
-                    <div class="h-64 w-44 overflow-hidden rounded-lg">
-                      <img src="assets/error.jpeg" alt="" class="h-full w-full object-cover object-center">
-                    </div>
-                  </div>
-                  <div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                    <div class="h-64 w-44 overflow-hidden rounded-lg">
-                      <img src="assets/desserts.jpeg" alt="" class="h-full w-full object-cover object-center">
-                    </div>
-                    <div class="h-64 w-44 overflow-hidden rounded-lg">
-                      <img src="assets/seitlich.jpeg" alt="" class="h-full w-full object-cover object-center">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            this.imageGalleryActiveUrl = this.$refs.gallery.querySelector('[data-index=\'' + this.imageGalleryImageIndex + '\']').src;
+            
+        }
+    }" @image-gallery-next.window="imageGalleryNext()" @image-gallery-prev.window="imageGalleryPrev()" @keyup.right.window="imageGalleryNext();" @keyup.left.window="imageGalleryPrev();" x-init="
+        imageGalleryPhotos = $refs.gallery.querySelectorAll('img');
+        for(let i=0; i<imageGalleryPhotos.length; i++){
+            imageGalleryPhotos[i].setAttribute('data-index', i+1);
+        }
+    " class="w-full h-full select-none">
+    <div class="max-w-6xl mx-auto duration-1000 delay-300 opacity-0 select-none ease animate-fade-in-view" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 0px);">
+      <ul x-ref="gallery" id="gallery" class="grid grid-cols-2 gap-5 lg:grid-cols-5">
+        <li><img x-on:click="imageGalleryOpen" src="assets/decke.jpeg" class="object-cover select-none w-full h-auto bg-gray-200 rounded cursor-zoom-in aspect-[5/6] lg:aspect-[2/3] xl:aspect-[3/4]" alt="photo gallery image 01"></li>
 
-            <a href="#" class="inline-block rounded-md border border-transparent bg-cyan-600 py-3 px-8 text-center font-medium text-white hover:bg-cyan-700">Svelte Signals</a>
+        <li><img x-on:click="imageGalleryOpen" src="assets/desserts.jpeg" class="object-cover select-none w-full h-auto bg-gray-200 rounded cursor-zoom-in aspect-[5/6] lg:aspect-[2/3] xl:aspect-[3/4]" alt="photo gallery image 07"></li>
+        <li><img x-on:click="imageGalleryOpen" src="assets/error.jpeg" class="object-cover select-none w-full h-auto bg-gray-200 rounded cursor-zoom-in aspect-[5/6] lg:aspect-[2/3] xl:aspect-[3/4]" alt="photo gallery image 08"></li>
+        <li><img x-on:click="imageGalleryOpen" src="assets/evoli.jpeg" class="object-cover select-none w-full h-auto bg-gray-200 rounded cursor-zoom-in aspect-[5/6] lg:aspect-[2/3] xl:aspect-[3/4]" alt="photo gallery image 09"></li>
+        <li><img x-on:click="imageGalleryOpen" src="assets/fit.jpeg" class="object-cover select-none w-full h-auto bg-gray-200 rounded cursor-zoom-in aspect-[5/6] lg:aspect-[2/3] xl:aspect-[3/4]" alt="photo gallery image 10"></li>
+        <li><img x-on:click="imageGalleryOpen" src="assets/waschbaer.jpeg" class="object-cover select-none w-full h-auto bg-gray-200 rounded cursor-zoom-in aspect-[5/6] lg:aspect-[2/3] xl:aspect-[3/4]" alt="photo gallery image 06"></li>
+        <li><img x-on:click="imageGalleryOpen" src="assets/seitlich.jpeg" class="object-cover select-none w-full h-auto bg-gray-200 rounded cursor-zoom-in aspect-[5/6] lg:aspect-[2/3] xl:aspect-[3/4]" alt="photo gallery image 07"></li>
+        
+        <li><img x-on:click="imageGalleryOpen" src="assets/muetzen.jpg" class="object-cover select-none w-full h-auto bg-gray-200 rounded cursor-zoom-in aspect-[5/6] lg:aspect-[2/3] xl:aspect-[3/4]" alt="photo gallery image 08"></li>
+        <li><img x-on:click="imageGalleryOpen" src="assets/pulli.jpeg" class="object-cover select-none w-full h-auto bg-gray-200 rounded cursor-zoom-in aspect-[5/6] lg:aspect-[2/3] xl:aspect-[3/4]" alt="photo gallery image 09"></li>
+        <li><img x-on:click="imageGalleryOpen" src="assets/set.jpeg" class="object-cover select-none w-full h-auto bg-gray-200 rounded cursor-zoom-in aspect-[5/6] lg:aspect-[2/3] xl:aspect-[3/4]" alt="photo gallery image 10"></li>
+      </ul>
+    </div>
+    <template x-teleport="body">
+      <div x-show="imageGalleryOpened" x-transition:enter="transition ease-in-out duration-300" x-transition:enter-start="opacity-0" x-transition:leave="transition ease-in-in duration-300" x-transition:leave-end="opacity-0" @click="imageGalleryClose" @keydown.window.escape="imageGalleryClose" x-trap.inert.noscroll="imageGalleryOpened" class="fixed inset-0 z-[99] flex items-center justify-center bg-black bg-opacity-50 select-none cursor-zoom-out" x-cloak>
+        <div class="relative flex items-center justify-center w-11/12 xl:w-4/5 h-11/12">
+          <div @click="$event.stopPropagation(); $dispatch('image-gallery-prev')" class="absolute left-0 flex items-center justify-center text-white translate-x-10 rounded-full cursor-pointer xl:-translate-x-24 2xl:-translate-x-32 bg-white/10 w-14 h-14 hover:bg-white/20">
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </div>
+          <img x-show="imageGalleryOpened" x-transition:enter="transition ease-in-out duration-300" x-transition:enter-start="opacity-0 transform scale-50" x-transition:leave="transition ease-in-in duration-300" x-transition:leave-end="opacity-0 transform scale-50" class="object-contain object-center w-full h-full select-none cursor-zoom-out" :src="imageGalleryActiveUrl" alt="" style="display: none;">
+          <div @click="$event.stopPropagation(); $dispatch('image-gallery-next');" class="absolute right-0 flex items-center justify-center text-white -translate-x-10 rounded-full cursor-pointer xl:translate-x-24 2xl:translate-x-32 bg-white/10 w-14 h-14 hover:bg-white/20">
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
           </div>
         </div>
       </div>
-    </div>
+    </template>
   </div>
 
+</section>
 
+</main>
+</body>
+    </main>
+    
     <footer>
         <div class="container mx-auto px-4 py-12">
             <div class="mt-8 pt-8 border-t border-cyan-800">
