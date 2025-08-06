@@ -14,7 +14,7 @@
     <nav class="bg-animated cyber-grid fixed w-full z-50">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
-                <a href="#" class="text-2xl font-bold neon-text glitch-effect" data-text="Private">Private</a>
+                <a href="#" class="text-2xl font-bold " data-text="Private">Private</a>
                 <input type="checkbox" id="menu-toggle" class="hidden">
                 <label for="menu-toggle" class="menu-icon cursor-pointer md:hidden">
                     <span class="hamburger"></span>
@@ -35,12 +35,12 @@
 
 </head>
 <body>
-<section class="px-4 py-24 mx-auto max-w-7xl">
+<section class="px-4 py-24 mx-auto max-w-7xl mt-20">
   <div class="w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center">
     <h1 class="mb-6 text-4xl font-extrabold leading-none tracking-normal text-gray-900 md:text-6xl md:tracking-tight">
-      <span class="block w-full neon-text bg-clip-text bg-black lg:inline">Hobbys</span>
+      <span class="block w-full text-white bg-clip-text bg-black lg:inline">Hobbys</span>
     </h1>
-    <p class="mt-4 text-xl text-white">In my free time I love to knit, crochet, sew oder work with my cutting plotter.</p>
+    <p class="mt-4 text-xl text-white">In my free time I love to knit, crochet, sew or work with my cutting plotter.</p>
   </div>
 
 </section>
@@ -86,18 +86,18 @@
     " class="w-full h-full select-none">
     <div class="max-w-6xl mx-auto duration-1000 delay-300 opacity-0 select-none ease animate-fade-in-view" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 0px);">
       <ul x-ref="gallery" id="gallery" class="grid grid-cols-2 gap-5 lg:grid-cols-5">
-        <li><img x-on:click="imageGalleryOpen" src="assets/decke.jpeg" class="object-cover select-none w-full h-auto bg-gray-200 rounded cursor-zoom-in aspect-[5/6] lg:aspect-[2/3] xl:aspect-[3/4]" alt="photo gallery image 01"></li>
+        <li><img x-on:click="imageGalleryOpen" src="assets/decke.jpeg" class="object-cover select-none w-full h-auto bg-gray-200 rounded " alt="photo gallery image 01"></li>
 
-        <li><img x-on:click="imageGalleryOpen" src="assets/desserts.jpeg" class="object-cover select-none w-full h-auto bg-gray-200 rounded cursor-zoom-in aspect-[5/6] lg:aspect-[2/3] xl:aspect-[3/4]" alt="photo gallery image 07"></li>
-        <li><img x-on:click="imageGalleryOpen" src="assets/error.jpeg" class="object-cover select-none w-full h-auto bg-gray-200 rounded cursor-zoom-in aspect-[5/6] lg:aspect-[2/3] xl:aspect-[3/4]" alt="photo gallery image 08"></li>
-        <li><img x-on:click="imageGalleryOpen" src="assets/evoli.jpeg" class="object-cover select-none w-full h-auto bg-gray-200 rounded cursor-zoom-in aspect-[5/6] lg:aspect-[2/3] xl:aspect-[3/4]" alt="photo gallery image 09"></li>
-        <li><img x-on:click="imageGalleryOpen" src="assets/fit.jpeg" class="object-cover select-none w-full h-auto bg-gray-200 rounded cursor-zoom-in aspect-[5/6] lg:aspect-[2/3] xl:aspect-[3/4]" alt="photo gallery image 10"></li>
-        <li><img x-on:click="imageGalleryOpen" src="assets/waschbaer.jpeg" class="object-cover select-none w-full h-auto bg-gray-200 rounded cursor-zoom-in aspect-[5/6] lg:aspect-[2/3] xl:aspect-[3/4]" alt="photo gallery image 06"></li>
-        <li><img x-on:click="imageGalleryOpen" src="assets/seitlich.jpeg" class="object-cover select-none w-full h-auto bg-gray-200 rounded cursor-zoom-in aspect-[5/6] lg:aspect-[2/3] xl:aspect-[3/4]" alt="photo gallery image 07"></li>
+        <li><img x-on:click="imageGalleryOpen" src="assets/desserts.jpeg" class="object-cover select-none w-full h-auto bg-gray-200 rounded " alt="photo gallery image 07"></li>
+        <li><img x-on:click="imageGalleryOpen" src="assets/error.jpeg" class="object-cover select-none w-full h-auto bg-gray-200 rounded " alt="photo gallery image 08"></li>
+        <li><img x-on:click="imageGalleryOpen" src="assets/evoli.jpeg" class="object-cover select-none w-full h-auto bg-gray-200 rounded " alt="photo gallery image 09"></li>
+        <li><img x-on:click="imageGalleryOpen" src="assets/fit.jpeg" class="object-cover select-none w-full h-auto bg-gray-200 rounded " alt="photo gallery image 10"></li>
+        <li><img x-on:click="imageGalleryOpen" src="assets/waschbaer.jpeg" class="object-cover select-none w-full h-auto bg-gray-200 rounded " alt="photo gallery image 06"></li>
+        <li><img x-on:click="imageGalleryOpen" src="assets/seitlich.jpeg" class="object-cover select-none w-full h-auto bg-gray-200 rounded " alt="photo gallery image 07"></li>
         
-        <li><img x-on:click="imageGalleryOpen" src="assets/muetzen.jpg" class="object-cover select-none w-full h-auto bg-gray-200 rounded cursor-zoom-in aspect-[5/6] lg:aspect-[2/3] xl:aspect-[3/4]" alt="photo gallery image 08"></li>
-        <li><img x-on:click="imageGalleryOpen" src="assets/pulli.jpeg" class="object-cover select-none w-full h-auto bg-gray-200 rounded cursor-zoom-in aspect-[5/6] lg:aspect-[2/3] xl:aspect-[3/4]" alt="photo gallery image 09"></li>
-        <li><img x-on:click="imageGalleryOpen" src="assets/set.jpeg" class="object-cover select-none w-full h-auto bg-gray-200 rounded cursor-zoom-in aspect-[5/6] lg:aspect-[2/3] xl:aspect-[3/4]" alt="photo gallery image 10"></li>
+        <li><img x-on:click="imageGalleryOpen" src="assets/muetzen.jpg" class="object-cover select-none w-full h-auto bg-gray-200 rounded " alt="photo gallery image 08"></li>
+        <li><img x-on:click="imageGalleryOpen" src="assets/pulli.jpeg" class="object-cover select-none w-full h-auto bg-gray-200 rounded " alt="photo gallery image 09"></li>
+        <li><img x-on:click="imageGalleryOpen" src="assets/set.jpeg" class="object-cover select-none w-full h-auto bg-gray-200 rounded " alt="photo gallery image 10"></li>
       </ul>
     </div>
     <template x-teleport="body">
